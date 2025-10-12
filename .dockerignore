@@ -1,0 +1,32 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Maven
+target/
+.mvn/timing.properties
+
+# IDE
+.idea/
+.vscode/
+.settings/
+.project
+.classpath
+*.iml
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Documentation
+README.md
+docs/
+
+# Docker
+Dockerfile
+docker-compose*.yml
+.dockerignore
