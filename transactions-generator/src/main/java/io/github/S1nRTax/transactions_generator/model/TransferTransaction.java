@@ -1,7 +1,6 @@
 package io.github.S1nRTax.transactions_generator.model;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
