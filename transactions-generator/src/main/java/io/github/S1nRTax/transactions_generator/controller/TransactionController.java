@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.github.S1nRTax.transactions_generator.dto.GenerationResponse;
 import io.github.S1nRTax.transactions_generator.model.Transaction;
-import io.github.S1nRTax.transactions_generator.service.generatorService;
+import io.github.S1nRTax.transactions_generator.service.GeneratorService;
 
 @RestController
 @RequestMapping("/api/transactions")
@@ -29,11 +29,12 @@ public class TransactionController {
 		);
 	}
 
-	List<Transaction> transactions = generatorService.generate(count);
+	List<Transaction> transactions = GeneratorService.generate(count);
 
 	return ResponseEntity.ok(GenerationResponse.builder()
 			.success(true)
 			.message(count + " transaction(s) generated successfully")
+			.count(transactions.size())
 			.transactions(transactions)
 			.build()
 		);
