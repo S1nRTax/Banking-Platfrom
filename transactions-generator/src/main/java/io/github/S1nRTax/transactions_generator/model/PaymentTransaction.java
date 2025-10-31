@@ -15,6 +15,5 @@ public class PaymentTransaction extends Transaction {
 
     private String serviceName;
     private String serviceCategory;
-    private String productType; 
 
 }
