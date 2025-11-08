@@ -1,6 +1,7 @@
 package io.github.S1nRTax.transactions_generator.scheduler;
 
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -19,11 +20,13 @@ public class TransactionsScheduler {
 	private final GeneratorService transactionsGenerator;
 
 	private final KafkaProducerService kafkaProducerService;
+	private final Random random = new Random();
 
 	@Scheduled(fixedRate = 1000)
 	public void generateAndSendTransactions() {
 		try {
-			List<Transaction> transactions = transactionsGenerator.generate(1);
+			int count = random.nextInt(5) + 1; // 1-5 transactions
+			List<Transaction> transactions = transactionsGenerator.generate(count);
 
 			kafkaProducerService.sendTransactions(transactions);
 
