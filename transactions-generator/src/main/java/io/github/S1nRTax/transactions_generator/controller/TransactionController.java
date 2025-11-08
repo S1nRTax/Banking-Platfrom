@@ -21,6 +21,8 @@ public class TransactionController {
 
 	private final KafkaProducerService kafkaProducerService;
 
+	private final GeneratorService generatorService;
+
 	@PostMapping("/generate")
 	ResponseEntity<GenerationResponse> generateTransactions(@RequestParam(defaultValue = "1") int count) {
 
@@ -33,7 +35,7 @@ public class TransactionController {
 		}
 
 		// Generating the transactions
-		List<Transaction> transactions = GeneratorService.generate(count);
+		List<Transaction> transactions = generatorService.generate(count);
 
 		// Publishing the transactions
 		kafkaProducerService.sendTransactions(transactions);

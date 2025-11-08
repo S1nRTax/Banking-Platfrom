@@ -20,7 +20,7 @@ public class GeneratorService {
    
    private static final Random RANDOM = new Random();
 
-   public static List<Transaction> generate(int count){
+   public List<Transaction> generate(int count){
 	List<Transaction> transactions = new ArrayList<>();
 	for(int i=0; i<count; i++){
 	    transactions.add(generateSingleTransaction());
